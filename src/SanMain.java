@@ -79,7 +79,7 @@ public class SanMain extends PApplet implements SConstants {
 	}
 
 	public void draw() {
-		background(0);
+		background(20);
 		// scale(scaleBasic);
 		// lights();
 		// rotateX(radians(lerp(pitch, 30, .04f)));
@@ -132,7 +132,7 @@ public class SanMain extends PApplet implements SConstants {
 		// routes.get(counter).drawDisplaced();
 		// ellipse(finalPos.x,(appletHeight+200)-100,40,40);
 		drawGUI();
-		//camControls();
+		camControls();
 		// cam.setRotations(lerp(pitch,-64,-.04f),yawn,roll);
 		pushMatrix();
 		translate((-width+200)/2,(-height+200)/2);
@@ -140,11 +140,11 @@ public class SanMain extends PApplet implements SConstants {
 			if (route == routes.get(i).getLineID()) {
 				routes.get(i).drawRoute();
 				//routes.get(i).drawStations();
-				// break;
+				 break;
 			}
 		}
 		popMatrix();
-
+		drawShirnkedRoutes();
 		// saveFrame("./pics/screen####.png");
 	}
 
@@ -198,11 +198,13 @@ public class SanMain extends PApplet implements SConstants {
 	}
 
 	public void camControls() {
+		int x = 680;
+		int y = 700;
 		hint(DISABLE_DEPTH_TEST);
 		cam.beginHUD();
 		pushStyle();
-		fill(100, 70);
-		rect(650, 580, 400, 500);
+		fill(100,70);
+		rect(x-30,y-30, 400, 500);
 		popStyle();
 		double distance = cam.getDistance();
 		float[] position = cam.getPosition();
@@ -210,7 +212,7 @@ public class SanMain extends PApplet implements SConstants {
 		float[] lookUp = cam.getLookAt();
 		text("position = " + Arrays.toString(position) + "\ndistance = " + String.valueOf(distance) + "\nrotations = "
 				+ Arrays.toString(rotations) + "\nlookUp = " + Arrays.toString(lookUp) + "\n" + String.valueOf(degrees(rotations[0]))
-				+ " , " + String.valueOf(degrees(rotations[1])) + "  " + String.valueOf(degrees(rotations[2])), 680, 600);
+				+ " , " + String.valueOf(degrees(rotations[1])) + "  " + String.valueOf(degrees(rotations[2])), x,y);
 
 		cam.endHUD();
 		hint(ENABLE_DEPTH_TEST);

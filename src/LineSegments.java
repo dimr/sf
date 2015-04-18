@@ -117,33 +117,33 @@ public class LineSegments implements SConstants {
 			pa.line(from.x, from.y, to.x, to.y);
 			// if (pa.keyPressed){
 			//
-			// up = new Vec3D(from.x, from.y, 100);
-			// down = new Vec3D(from.x, from.y, -100);
-			// pa.pushMatrix();
-			// pa.pushStyle();
-			// pa.stroke(100);
-			// pa.translate(0, 0, 100);
-			// // pa.ellipse(up.x,up.y,40,40);
-			// pa.strokeWeight(1.4f);
-			// // pa.line(down.x,down.y, down.z, up.x,up.y ,lerpFactor);// )
-			// // pa.ellipse(up.x,up.y,5,5);
-			// // pa.line(from.x, y1, x2, y2);
-			//
-			// // QUAD STRIP
-			// pa.beginShape(pa.QUAD_STRIP);
-			// pa.pushStyle();
-			// pa.fill(100, 90);
-			// pa.noStroke();
-			// pa.vertex(from.x, from.y, -100);
-			// pa.vertex(from.x, from.y, lerpFactor);
-			// pa.vertex(to.x, to.y, -100);
-			// pa.vertex(to.x, to.y, lerpFactor);
-			// pa.endShape();
-			// pa.popStyle();
-			//
-			// pa.popStyle();
-			// pa.popMatrix();
-			// END QUAD STRIP
+			 up = new Vec3D(from.x, from.y, 100);
+			 down = new Vec3D(from.x, from.y, -100);
+			 pa.pushMatrix();
+			 pa.pushStyle();
+			 pa.stroke(100);
+			 pa.translate(0, 0, 100);
+			 // pa.ellipse(up.x,up.y,40,40);
+			 pa.strokeWeight(1.4f);
+			 // pa.line(down.x,down.y, down.z, up.x,up.y ,lerpFactor);// )
+			 // pa.ellipse(up.x,up.y,5,5);
+			 // pa.line(from.x, y1, x2, y2);
+
+			 // QUAD STRIP
+			 pa.beginShape(pa.QUAD_STRIP);
+			 pa.pushStyle();
+			 pa.fill(100, 90);
+			 pa.noStroke();
+			 pa.vertex(from.x, from.y, -100);
+			 pa.vertex(from.x, from.y, lerpFactor);
+			 pa.vertex(to.x, to.y, -100);
+			 pa.vertex(to.x, to.y, lerpFactor);
+			 pa.endShape();
+			 pa.popStyle();
+
+			 pa.popStyle();
+			 pa.popMatrix();
+			 //END QUAD STRIP
 		}
 
 		pa.popStyle();
