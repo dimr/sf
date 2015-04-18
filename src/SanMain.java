@@ -41,14 +41,14 @@ public class SanMain extends PApplet implements SConstants {
 		// loadStrings("/home/dimitris/workspace/RData/Urban-Data-Challenge/public-transportation/san-francisco/passenger-count.csv");
 		// String [] td =
 		// loadStrings("/home/dimitris/workspace/RData/Urban-Data-Challenge/public-transportation/san-francisco/scheduled-arrivals.csv");
-		size(appletWidth + 200, appletHeight + 200, P3D);
+		size(appletWidth +200,200+ appletHeight ,P3D);
 		// scene = new Scene(this);
 		// scene.setAxisIsDrawn(false);
 		// scene.setGridIsDrawn(false);
 		// scene.
 		// scene.setCenter(new PVector(1110,1000));
 	    //cam = new PeasyCam(this, (appletWidth + 200) / 2, (appletHeight + 200) / 2, 0, 100);
-		cam = new PeasyCam(this,70,70,0,100);
+		cam = new PeasyCam(this,70,70,0,700);
 		routes = DataLoader.loadRoutes(this, json_routes);
 		font = createFont("Comfortaa", 48);
 		// font = loadFont("Comfortaa-48.vlw");
@@ -79,15 +79,15 @@ public class SanMain extends PApplet implements SConstants {
 	}
 
 	public void draw() {
-		background(100);
+		background(0);
 		// scale(scaleBasic);
 		// lights();
 		// rotateX(radians(lerp(pitch, 30, .04f)));
-		//pushMatrix();
-		 //translate(-width / 2, -height / 2);
+		pushMatrix();
+		 translate((-width+200)/2,(-height+200)/2);
 		// scale(scaleBasic);
-		image(roads,70,70 ,appletWidth+200,200+appletHeight);
-		//popMatrix();
+		image(roads,offSet.x(),offSet.y ,appletWidth,appletHeight);
+		popMatrix();
 		// x = cos( radians( frameCount ) ) * 1000;
 		// z = sin( radians( frameCount ) ) * 1000;
 		//
@@ -105,7 +105,7 @@ public class SanMain extends PApplet implements SConstants {
 		mouseLocation = new Vec2D(mouseX, mouseY);
 
 		fill(100, 50);
-		// routes.get(counter).drawRoute();
+	//	 routes.get(counter).drawRoute();
 		// rectMode(RADIUS);
 		// rect(finalPos.x,finalPos.y,100,100);
 		// routes.get(route).drawRoute();
@@ -132,15 +132,18 @@ public class SanMain extends PApplet implements SConstants {
 		// routes.get(counter).drawDisplaced();
 		// ellipse(finalPos.x,(appletHeight+200)-100,40,40);
 		drawGUI();
-		camControls();
+		//camControls();
 		// cam.setRotations(lerp(pitch,-64,-.04f),yawn,roll);
+		pushMatrix();
+		translate((-width+200)/2,(-height+200)/2);
 		for (int i = 0; i < routes.size(); i++) {
 			if (route == routes.get(i).getLineID()) {
 				routes.get(i).drawRoute();
-				routes.get(i).drawStations();
+				//routes.get(i).drawStations();
 				// break;
 			}
 		}
+		popMatrix();
 
 		// saveFrame("./pics/screen####.png");
 	}
