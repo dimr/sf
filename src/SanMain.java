@@ -49,6 +49,7 @@ public class SanMain extends PApplet implements SConstants {
 		// scene.setCenter(new PVector(1110,1000));
 	    //cam = new PeasyCam(this, (appletWidth + 200) / 2, (appletHeight + 200) / 2, 0, 100);
 		cam = new PeasyCam(this,70,70,0,700);
+
 		routes = DataLoader.loadRoutes(this, json_routes);
 		font = createFont("Comfortaa", 48);
 		// font = loadFont("Comfortaa-48.vlw");
@@ -65,8 +66,8 @@ public class SanMain extends PApplet implements SConstants {
 
 		firstButton = buttons[0].getPosition().copy();
 		lastButton = buttons[buttons.length - 1].getPosition().copy();
-		// cam.setMinimumDistance(100);
-		// cam.setMaximumDistance(500);
+		 cam.setMinimumDistance(100);
+		 cam.setMaximumDistance(700);
 
 		//roads = loadImage("/home/dimitris/workspace/processing/sketch2/FrnciscoSHPtoImage/result.png");
 		// Station s = routes.get(0).getStations((HashMap<String,
@@ -209,9 +210,9 @@ public class SanMain extends PApplet implements SConstants {
 		double distance = cam.getDistance();
 		float[] position = cam.getPosition();
 		float[] rotations = cam.getRotations();
-		float[] lookUp = cam.getLookAt();
+		float[] lookAt = cam.getLookAt();
 		text("position = " + Arrays.toString(position) + "\ndistance = " + String.valueOf(distance) + "\nrotations = "
-				+ Arrays.toString(rotations) + "\nlookUp = " + Arrays.toString(lookUp) + "\n" + String.valueOf(degrees(rotations[0]))
+				+ Arrays.toString(rotations) + "\nlookUp = " + Arrays.toString(lookAt) + "\n" + String.valueOf(degrees(rotations[0]))
 				+ " , " + String.valueOf(degrees(rotations[1])) + "  " + String.valueOf(degrees(rotations[2])), x,y);
 
 		cam.endHUD();
