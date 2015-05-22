@@ -133,7 +133,7 @@ public class SanMain extends PApplet implements SConstants {
         // routes.get(counter).drawDisplaced();
         // ellipse(finalPos.x,(appletHeight+200)-100,40,40);
         drawGUI();
-        camControls();
+
         // cam.setRotations(lerp(pitch,-64,-.04f),yawn,roll);
         pushMatrix();
         translate((-width + 200) / 2, (-height + 200) / 2);
@@ -145,6 +145,7 @@ public class SanMain extends PApplet implements SConstants {
             }
         }
         popMatrix();
+        camControls();
         drawShirnkedRoutes();
         // saveFrame("./pics/screen####.png");
     }

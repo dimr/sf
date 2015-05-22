@@ -101,8 +101,9 @@ public class Route implements SConstants {
             //pa.rotateX(pa.PI);
            // pa.line(s.getLocation().x, s.getLocation().y, 0, s.getLocation().x, s.getLocation().y, 100);
             pa.pushMatrix();
-            pa.translate(s.getLocation().x,s.getLocation().y,250);
-            pa.rotateY(pa.radians(90));
+            pa.translate(s.getLocation().x,s.getLocation().y,50);
+            pa.rotateY(pa.radians(-90));
+            pa.textSize(10);
             pa.text(s.getStopName(), 0,0, 0);
             pa.popMatrix();
         }
